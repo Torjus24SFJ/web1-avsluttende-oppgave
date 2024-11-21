@@ -5,15 +5,15 @@
 Fiks loopen for randomArray slik at man får 100 tall pushet inn i randomArray med tall mellom 1 og 1000 (sjekkes via konsoll loggen under)
 Tips: For å teste at loopen tar med 1 og 1000, prøv ut først med et lavere maks tall (f.eks 5)
 */
-const randomArray = [];
 
+const randomArray = [];
+const randomNumber = Math.floor(Math.random() * 100);
 
 //! fiks denne:
-for (let i = 0; i < 1; i++) {
-  randomArray.push(Math.floor(Math.random() * 1));
+for (let i = 0; i < 100; i++) {
+  randomArray.push(Math.floor(Math.random() * 1000)+ 1);
 }
-
-console.log(randomArray); // expected result: 1-1000
+console.log(randomArray[randomNumber]); // expected result: 1-1000
 
 
 /* Oppgave 2
@@ -29,9 +29,8 @@ function filterArray(arr) {
 }
 
 //! fiks disse:
-const getOdds = (num) => num // legg til noe mer her for å finne alle tall som er oddetall (PSEUDO KODE: MODULO DELT PÅ TO ER IKKE STRICT LIK NULL);
-const getEvens = (num) => num // legg til noe mer her for å finne alle tall som er oddetall (PSEUDO KODE: MODULO DELT PÅ TO ER STRICT LIK NULL);
-
+const getOdds = (num) => num % 2 !== 0; 
+const getEvens = (num) => num % 2 === 0;
 
 /* Oppgave 3
 
@@ -50,16 +49,17 @@ tips2: syntaxen ligner noe på det som blir gjort i oppgave 2, men det er 2 para
 const { odds, evens } = filterArray(randomArray);
 
 //! fiks disse:
-const sumOfOdds = odds
-const sumOfEvens = evens
+const sumOfOdds = odds.reduce((sum, num) => sum + num, 0)
+const sumOfEvens = evens.reduce((sum, num) => sum + num, 0)
 
-/* Oppgave 3.1
+// Oppgave 3.1
 
-Skriv konsoll logger for:
-    - sumOfOdds
-    - sumOfEvens
-    - lengden av odds
-    - lengden av evens
+
+/*Skriv konsoll logger for:
+- sumOfOdds
+- sumOfEvens
+- lengden av odds
+- lengden av evens
 
 bruk denne syntaxen i konsoll loggene (+ en ekstra ting etter variabelName hvor du skal finne lengden):
 console.log("description of console log:", variabelName)
@@ -67,6 +67,10 @@ console.log("description of console log:", variabelName)
 */
 
 //! skriv oppgave 3.1 svar her
+console.log(sumOfOdds);
+console.log(sumOfEvens);
+console.log(odds.length);
+console.log(evens.length);
 
 
 /* Oppgave 4 
