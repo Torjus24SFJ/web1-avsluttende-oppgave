@@ -67,10 +67,10 @@ console.log("description of console log:", variabelName)
 */
 
 //! skriv oppgave 3.1 svar her
-console.log(sumOfOdds);
-console.log(sumOfEvens);
-console.log(odds.length);
-console.log(evens.length);
+console.log(`Sum of Odd numbers: ${sumOfOdds}`);
+console.log(`Sum of Even numbers: ${sumOfEvens}`);
+console.log(`Odd numbers in array: ${odds.length}`);
+console.log(`Even numbers in array: ${evens.length}`);
 
 
 /* Oppgave 4 
@@ -89,17 +89,27 @@ Lag i tillegg en logikk som sjekker hvis verken den første eller andre contitio
 
 // Conditional Logic
 let result = "";
-let difference = 0;
+let valueDifference = 0;
 if (sumOfOdds > sumOfEvens) {
   valueDifference = sumOfOdds - sumOfEvens
-  result = "Sum of Odds is greater than Sum of Evens."
-} /* skriv videre her */
+  result = "Sum of Odds is greater than Sum of Evens"
+} 
+else if(sumOfOdds < sumOfEvens) 
+{
+  valueDifference = sumOfEvens - sumOfOdds
+  result = "Sum of Evens is greater than Sum of Odds"
+}
+else 
+{
+  valueDifference = valueDifference;
+  result = "Sum of Odd and Evens are Equal";
+}
 
+//  Oppgave 4.1
+// konsoll log difference. Bruk samme syntax som i oppgave 3.1
+console.log(`Result: ${result}`);
+console.log(`Difference: ${valueDifference}`);
 
-/* Oppgave 4.1
-
-konsoll log difference. Bruk samme syntax som i oppgave 3.1
-*/
 
 /* Oppgave 5
 
@@ -108,16 +118,26 @@ Lag en ny conditional logikk under hvor man sjekker hvilke av odds og evens som 
 tips: Se tilbake hva du har skrevet i oppgave 3.1 for å finne lengdene du skal bruke i denne oppgaven.
 
 eks: 
-
-if (this > that) {
-    typeDifference = `There are ${calcutate the difference here} more this than that`
-}
-
 */
-
-let typeDifference;
-
 //! skriv conditional logikken her
+let typeDifference = "";
+let lengthResult = Math.abs(odds.length - evens.length)
+
+if (odds.length < evens.length)
+  {
+    typeDifference = `Odds has ${lengthResult} more numbers` 
+  }
+  else if (odds.length > evens.length) 
+  {
+    typeDifference = `Even has ${lengthResult} more numbers`
+  }
+  else 
+  {
+    typeDifference = "Odd and Even is equal"
+  }
+
+  console.log(typeDifference)  // Just to make it easier to correct errors
+  // console.log(lengthResult)    And oh boy did i write it wrong the first time
 
 
 /* Oppgave 6
@@ -130,11 +150,17 @@ let typeDifference;
 eks: <p id="dinReferanseVerdi"></p>
 eks: document.getElementByid("dinReferanseVerdiFraPtaggen").textContent = variabel
 
-
 */
 
-//! definer en ny variabel for referanse til verdien du skal vise frem
 
+//! definer en ny variabel for referanse til verdien du skal vise frem
+const averageOdds = odds.length > 0 ? Math.floor(sumOfOdds / odds.length) : 0;
+const averageEvens = evens.length > 0 ? Math.floor(sumOfEvens / evens.length) : 0;
+
+//* Debug
+// console.log(averageOdds)
+// console.log(averageEvens)
+// console.log(randomArray)
 
 //! skriv if else her
 
@@ -152,8 +178,8 @@ f.eks median, størst verdi, minst verdi, hvor mange verdier er over/under en vi
 //! Koden under skal ikke røres. Den gjør at man får ut svaret på nettsiden:
 document.getElementById("result-odds").textContent = `Sum of Odds: ${sumOfOdds}. There are ${odds.length} odds`;
 document.getElementById("result-evens").textContent = `Sum of Evens: ${sumOfEvens}. There are ${evens.length} evens`;
-document.getElementById("valueDifference").textContent = `Difference between sum of Odds and Evens: ${valueDifference}`
-document.getElementById("typeDifference").textContent = typeDifference
-// ny document.getElementById her for oppgave 6:
+document.getElementById("valueDifference").textContent = `Difference between sum of Odds and Evens: ${valueDifference}`;
+document.getElementById("typeDifference").textContent = typeDifference;
+document.getElementById("averageOdds").typeContent = `Average odds: ${averageOdds};`
 
 document.getElementById("result").textContent = result;
